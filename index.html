@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GyM Automation | Ingeniería y Soluciones Industriales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --azul-gym: #1a5ea8;
+            --naranja-gym: #f9a825;
+            --oscuro: #121212;
+            --gris-claro: #f4f4f4;
+            --blanco: #ffffff;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--gris-claro);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background: var(--blanco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container img {
+            height: 65px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--azul-gym);
+            font-weight: bold;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--naranja-gym);
+        }
+
+        .btn-cotizar {
+            background: var(--naranja-gym);
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-cotizar:hover {
+            background: var(--azul-gym);
+            transform: scale(1.05);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                        url('portada.jpeg') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            color: var(--blanco);
+            padding: 0 10%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--naranja-gym);
+            padding-left: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #f0f0f0;
+            max-width: 650px;
+        }
+
+        /* --- SECCIÓN SERVICIOS --- */
+        .services-container {
+            margin-top: -80px;
+            padding: 0 5%;
+        }
+
+        .services-grid {
+            background: var(--blanco);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 45px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 20px;
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--azul-gym);
+        }
+
+        .service-card i {
+            font-size: 2.8rem;
+            color: var(--azul-gym);
+            margin-bottom: 15px;
+        }
+
+        /* --- SOBRE NOSOTROS (TRAYECTORIA) --- */
+        .about-section {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .about-text h2 {
+            color: var(--azul-gym);
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .about-text ul {
+            list-style: none;
+        }
+
+        .about-text ul li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .about-text ul li i {
+            color: var(--naranja-gym);
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 1.2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--oscuro);
+            color: var(--blanco);
+            padding: 60px 10% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 25px;
+            color: var(--naranja-gym);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-box p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            margin-right: 20px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--naranja-gym);
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.3rem; }
+            .hero { height: 75vh; }
+            .about-section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/50688565520" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="GyM Automation Logo Oficial">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Trayectoria</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="mailto:gymautomation7780@gmail.com" class="btn-cotizar">SOLICITAR COTIZACIÓN</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Expertos en Soluciones Industriales de Alta Precisión</h1>
+            <p>Líderes en Costa Rica en mantenimiento electromecánico, integración de PLC's, diseño de paneles de control y sistemas certificados contra explosión.</p>
+        </div>
+    </section>
+
+    <section class="services-container" id="servicios">
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-industry"></i>
+                <h3>Electromecánica</h3>
+                <p>Mantenimiento preventivo y montaje de maquinaria industrial.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Automatización</h3>
+                <p>Lógica de procesos y programación avanzada de PLC's.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-charging-station"></i>
+                <h3>Paneles de Control</h3>
+                <p>Fabricación de tableros de potencia bajo normas de seguridad.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Sistemas EX</h3>
+                <p>Protección especializada para entornos con riesgos críticos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="nosotros">
+        <div class="about-image">
+            <img src="proyecto.jpeg" alt="Ingeniería GyM Automation en campo">
+        </div>
+        <div class="about-text">
+            <h2>Trayectoria y Confianza</h2>
+            <p>Con más de <strong>20 años de experiencia</strong>, en GyM Automation transformamos la industria a través de estándares de calidad internacional y personal certificado.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Cumplimiento estricto del Código Eléctrico Nacional.</li>
+                <li><i class="fas fa-check-circle"></i> Experiencia en líneas médicas, alimenticias e industriales críticas.</li>
+                <li><i class="fas fa-check-circle"></i> Soporte técnico en mediana y alta tensión.</li>
+                <li><i class="fas fa-check-circle"></i> Especialistas en fibra óptica y cableado estructurado.</li>
+            </ul>
+            <p style="margin-top: 25px; font-weight: bold; color: var(--azul-gym); font-size: 1.2rem;">¡Será un gusto potenciar su próximo proyecto!</p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-box">
+                <h3>CONTACTO DIRECTO</h3>
+                <p><i class="fas fa-map-marker-alt" style="color: var(--naranja-gym)"></i> Heredia, Costa Rica</p>
+                <p><i class="fas fa-phone" style="color: var(--naranja-gym)"></i> 8856-5520</p>
+                <p><i class="fas fa-envelope" style="color: var(--naranja-gym)"></i> gymautomation7780@gmail.com</p>
+            </div>
+            <div class="footer-box">
+                <h3>REDES SOCIALES</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/people/GyM-Automation/61564200192874/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gym_automation" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/gym-automatizaci%C3%B3n/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #333; padding-top: 25px; font-size: 0.85rem; color: #888;">
+            <p>&copy; 2026 GyM Automation. Heredia, Costa Rica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
